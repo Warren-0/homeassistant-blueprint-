@@ -1,6 +1,6 @@
 blueprint:
-  name: Motion-activated Light (only after sunset and before sunrise)
-  description: Turn on a light when motion is detected.
+  name: Motion-activated Light (after sunset and before sunrise + after sunset offset)
+  description: Turn on a light when motion is detected (after sunset and before sunrise + after sunset offset).
   domain: automation
   input:
     motion_entity:
@@ -25,11 +25,14 @@ blueprint:
           max: 3600
           unit_of_measurement: seconds
     sunset_offset:
-      name: Sunrise - Offset - time
-      description: Offset the sunrise time
-      default: "-00:45:00"
+      name: Offset to turn on lights
+      description: Define offset to sunset
+      default: 0
       selector:
-        time: {}
+        number:
+          min: 0
+          max: 240
+          unit_of_measurement: minutes
 
 # If motion is detected within the delay,
 # we restart the script.
