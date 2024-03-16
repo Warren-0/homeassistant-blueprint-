@@ -24,6 +24,15 @@ blueprint:
           min: 0
           max: 3600
           unit_of_measurement: seconds
+    sunset_offset:
+      name: Offset to turn on lights
+      description: Define offset to sunset
+      default: 45
+      selector:
+        number:
+          min: 0
+          max: 240
+          unit_of_measurement: minutes
 
 # If motion is detected within the delay,
 # we restart the script.
@@ -40,7 +49,7 @@ condition:
   - condition: sun
     after: sunrise
     before: sunset
-    after_offset: "-00:25:00"
+    after_offset: !input sunset_offset
 
 action:
   - alias: "Turn on the light"
