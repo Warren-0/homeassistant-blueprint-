@@ -30,7 +30,7 @@ blueprint:
       default: 45
       selector:
         number:
-          min: 0
+          min: -240
           max: 240
           unit_of_measurement: minutes
 
