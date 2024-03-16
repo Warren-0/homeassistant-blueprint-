@@ -30,9 +30,11 @@ blueprint:
       default: 0
       selector:
         number:
-          min: -250
+          min: -240
           max: 240
           unit_of_measurement: minutes
+          mode: slider
+          step: 1.0
 
 # If motion is detected within the delay,
 # we restart the script.
